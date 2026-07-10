@@ -19,4 +19,7 @@ ghq() {
   fi
 }
 
-# eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"
+# if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+if [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s main
+fi
