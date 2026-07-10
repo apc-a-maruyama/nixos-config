@@ -51,11 +51,12 @@ in {
 
     # _1password-cli
     asciinema
-    # chezmoi
+    chezmoi
     watch
 
     # gopls
     # zigpkgs."0.15.2"
+    gemini-cli
   ];
 
   home.sessionVariables = {
@@ -73,7 +74,8 @@ in {
   };
   xdg.configFile = {
     # "oh-my-posh".source = "${inputs.dotfiles}/.config/ohmyposh";
-    "nvim".source = "${inputs.dotfiles}/.config/nvim";
+    # "nvim".source = "${inputs.dotfiles}/.config/nvim";
+    "nvim/init.lua".force = true;
   };
 
   # programs.gpg.enable = true; 
@@ -142,6 +144,9 @@ in {
     vimAlias = true;
 
     extraPackages = with pkgs; [ gcc gnumake ];
+    initLua = ''
+      require("config.lazy")
+    '';
   };
 
   programs.npm.enable = true;
