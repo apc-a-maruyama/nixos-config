@@ -110,13 +110,13 @@ in {
       gpg.ssh.allowdSignersFile = "~/.ssh/allowed_signers";
     };
     settings = {
-      user.name = "Akihisa Maruyama";
+      user.name = "Aki543";
       user.email = "a_maruyama@ap-com.co.jp";
       branch.autosetuprebase = "always";
       color.ui = true;
       core.askPass = ""; # needs to be empty to use terminal for ask pass
       credential.helper = "store"; # want to make this more secure
-      github.user = "aki543";
+      github.user = "apc-a-maruyama";
       push.default = "tracking";
       init.defaultBranch = "main";
       ghq.root = "/home/aki543/.ghq";
