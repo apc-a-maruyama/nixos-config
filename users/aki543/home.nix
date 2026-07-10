@@ -40,7 +40,6 @@ in {
     fd
     jq
     eza
-    oh-my-posh
     curl
     fzf
     gh
@@ -73,7 +72,7 @@ in {
     ".inputrc".source = ./config/inputrc;
   };
   xdg.configFile = {
-    "oh-my-posh".source = "${inputs.dotfiles}/.config/ohmyposh";
+    # "oh-my-posh".source = "${inputs.dotfiles}/.config/ohmyposh";
     "nvim".source = "${inputs.dotfiles}/.config/nvim";
   };
 
@@ -146,7 +145,13 @@ in {
   };
 
   programs.npm.enable = true;
-  programs.oh-my-posh.enable = true;
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+
+    configFile = ./config/theme.omp.json;
+  };
+
 
   programs.tmux = {
     enable = true;
@@ -180,7 +185,7 @@ in {
       extrakto
     ];
 
-    extraConfig = builtins.readFile ./tmux.conf;
+    extraConfig = builtins.readFile ./config/tmux.conf;
   };
 
   programs.zoxide = {

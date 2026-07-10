@@ -19,4 +19,4 @@ ghq() {
   fi
 }
 
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"
+# eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"
