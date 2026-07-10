@@ -1,0 +1,22 @@
+export _ZO_EXCLUDE_DIRS="$HOME/.ghq";
+export FZF_DEFAULT_OPTS="--layout=reverse --height=45% --border --preview-window=down:30%";
+
+ghq() {
+  if [ "$1" = "repo" ]; then
+    shift
+
+    if [[ -z "$1" ]]; then
+      repo_name=$(ghq list --unique | fzf --preview 'ls -C $(ghq list -p | rg {})')
+    else
+      repo_name=$(ghq list --unique | rg "$1" | fzf-tmux --ansi)
+    fi
+    repo_path=$(ghq list -p | grep "/$repo_name$")
+
+    cd "$repo_path"
+
+  else
+    command ghq "$@"
+  fi
+}
+
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"
