@@ -73,7 +73,6 @@ in {
     ".inputrc".source = ./config/inputrc;
   };
   xdg.configFile = {
-    # "nvim/init.lua".force = true;
     "oh-my-posh".source = "${inputs.dotfiles}/.config/ohmyposh";
     "nvim".source = "${inputs.dotfiles}/.config/nvim";
   };
