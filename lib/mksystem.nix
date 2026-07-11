@@ -22,7 +22,7 @@ in nixpkgs.lib.nixosSystem {
   inherit system;
 
   modules = [
-    { nixpkgs.config.allowUnfree = true; }
+    # { nixpkgs.config.allowUnfree = true; }
     { nixpkgs.overlays = overlays; }
   ] ++ optionals isWSL [
     inputs.nixos-wsl.nixosModules.wsl

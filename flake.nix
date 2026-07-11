@@ -8,32 +8,21 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-    # # spapd (package manager)
-    # nix-snapd.url = "github:nix-community/nix-snapd";
-    # nix-snapd.inputs.nixpkgs.follows = "nixpkgs";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     jujutsu.url = "github:martinvonz/jj";
-    zig.url = "github:mitchellh/zig-overlay";
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
-
-    dotfiles = {
-        url = "github:aki543/dotfiles";
-        flake = false;
-    };
   };
 
   outputs = { nixpkgs, ... }@inputs:
     let
       overlays = [
         inputs.jujutsu.overlays.default
-        inputs.zig.overlays.default
 
         (_final: prev: let
           system = prev.stdenv.hostPlatform.system;

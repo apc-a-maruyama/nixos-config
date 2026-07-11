@@ -53,8 +53,6 @@ in {
     chezmoi
     watch
 
-    # gopls
-    # zigpkgs."0.15.2"
     gemini-cli
     fastfetch
   ];
@@ -73,8 +71,6 @@ in {
     ".inputrc".source = ./config/inputrc;
   };
   xdg.configFile = {
-    # "oh-my-posh".source = "${inputs.dotfiles}/.config/ohmyposh";
-    # "nvim".source = "${inputs.dotfiles}/.config/nvim";
     "nvim/init.lua".force = true;
   };
 
