@@ -19,7 +19,6 @@ ghq() {
   fi
 }
 
-# if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
 if [ -z "$TMUX" ]; then
   exec tmux new-session -A -s main
 fi

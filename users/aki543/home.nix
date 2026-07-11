@@ -3,21 +3,20 @@
 
 let
   shellAliases = {
-    # eza aliases
     ls = "eza --icons";
     ll = "eza -l --icons";
     la = "eza -la --icons";
     lla = "eza -lha --icons";
     lt = "eza --tree --level=2 --icons";
-    # clear
+
     c = "clear";
-    # nvim
+
     nv = "nvim";
-    # zoxide
-    z = "zoxide";
-    # bat
+
+    g = "git";
+
     cat = "bat --style=plain --paging=never";
-    # jujutsu
+
     jd = "jj desc";
     jf = "jj git fetch";
     jn = "jj new";
@@ -138,12 +137,16 @@ in {
 
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    # package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     viAlias = true;
     vimAlias = true;
 
-    extraPackages = with pkgs; [ gcc gnumake ];
+    extraPackages = with pkgs; [ 
+      gcc
+      gnumake
+      stylua
+    ];
     initLua = ''
       require("config.lazy")
     '';
@@ -196,7 +199,6 @@ in {
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
-    enableBashIntegration = true;
   };
 
 }
