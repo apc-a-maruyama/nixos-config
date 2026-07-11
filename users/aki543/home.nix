@@ -56,6 +56,7 @@ in {
     # gopls
     # zigpkgs."0.15.2"
     gemini-cli
+    fastfetch
   ];
 
   home.sessionVariables = {
